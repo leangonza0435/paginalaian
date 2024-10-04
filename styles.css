@@ -1,0 +1,234 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 10px 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-options {
+    display: flex;
+    align-items: center;
+}
+
+.auth-btn {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-btn:hover {
+    background-color: #333;
+}
+
+nav {
+    background-color: #eaeaea;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.productos {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.producto {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    margin: 10px;
+    background-color: white;
+    transition: transform 0.3s;
+}
+
+.producto:hover {
+    transform: scale(1.05);
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+}
+
+.producto button {
+    background-color: #28a745; /* Color verde para botones */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px; /* Espacio superior para los botones de productos */
+}
+
+.producto button:hover {
+    background-color: #218838; /* Color verde más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+}
+
+#carrito {
+    position: fixed;
+    right: 20px;
+    top: 70px;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 200px;
+    display: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#checkout {
+    position: fixed;
+    right: 20px;
+    top: 70px;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 300px;
+    display: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#checkout h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#payment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#payment-form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#payment-form button {
+    background-color: #28a745; /* Color verde para botones */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#payment-form button:hover {
+    background-color: #218838; /* Color verde más oscuro al pasar el ratón */
+}
+
+/* Botón para vaciar el carrito */
+.btn-vaciar {
+    background-color: #dc3545; /* Color rojo para el botón de vaciar */
+    margin-top: 15px; /* Espacio superior para el botón */
+    width: 100%; /* Hacer que el botón ocupe todo el ancho disponible */
+}
+
+.btn-vaciar:hover {
+    background-color: #c82333; /* Color rojo más oscuro al pasar el ratón */
+}
+
+/* Botón para proceder a pagar */
+.btn-pagar {
+    background-color: #007bff; /* Color azul para el botón de pagar */
+    margin-top: 15px; /* Espacio superior para el botón */
+    width: 100%; /* Hacer que el botón ocupe todo el ancho disponible */
+}
+
+.btn-pagar:hover {
+    background-color: #0056b3; /* Color azul más oscuro al pasar el ratón */
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Para que los elementos dentro del container se apilen en pantallas pequeñas */
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column; /* Menú vertical en pantallas pequeñas */
+        align-items: flex-start;
+    }
+
+    .productos {
+        width: 100%; /* Adaptar el ancho al 100% para pantallas pequeñas */
+    }
+
+    .producto {
+        width: 100%; /* Las tarjetas de productos ocuparán todo el ancho de la pantalla en móviles */
+        margin: 10px 0; /* Ajustar el margen entre productos */
+    }
+
+    #carrito, #checkout {
+        width: 100%; /* Carrito y checkout ocuparán todo el ancho en pantallas pequeñas */
+        right: 0; /* Centrarlos en la pantalla */
+        top: auto;
+        bottom: 0; /* Mover hacia abajo en móviles */
+    }
+}
+
+/* Adaptaciones adicionales para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .auth-btn {
+        padding: 8px 10px; /* Botones más pequeños en pantallas más chicas */
+        font-size: 14px;
+    }
+
+    .producto button {
+        padding: 10px 15px; /* Botones más pequeños en las tarjetas de productos */
+        font-size: 14px;
+    }
+}

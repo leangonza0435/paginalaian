@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laian - Tienda de Ropa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Laian <span>- Tienda de Ropa</span></h1>
+        <div class="user-options">
+            <button id="login-btn" class="auth-btn">Iniciar Sesión</button>
+            <button id="register-btn" class="auth-btn">Registrarse</button>
+            <div class="carrito-icon" onclick="toggleCarrito()">
+                <i class="fas fa-shopping-cart"></i> <span id="carrito-cantidad">0</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+        <li><a href="#" onclick="mostrarSeccion('hombres')">Hombres</a></li>
+        <li><a href="#" onclick="mostrarSeccion('mujeres')">Mujeres</a></li>
+        <li><a href="#" onclick="mostrarSeccion('accesorios')">Accesorios</a></li>
+        <li><a href="#" onclick="mostrarSeccion('ofertas')">Ofertas</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section id="inicio" class="productos">
+        <h2>Productos Destacados</h2>
+        <div class="producto">
+            <img src="producto1.jpg" alt="Producto 1">
+            <h3>Producto 1</h3>
+            <p>$20.00</p>
+            <button onclick="agregarAlCarrito('Producto 1', 20.00)">Agregar al Carrito</button>
+        </div>
+        <div class="producto">
+            <img src="producto2.jpg" alt="Producto 2">
+            <h3>Producto 2</h3>
+            <p>$25.00</p>
+            <button onclick="agregarAlCarrito('Producto 2', 25.00)">Agregar al Carrito</button>
+        </div>
+        <div class="producto">
+            <img src="producto3.jpg" alt="Producto 3">
+            <h3>Producto 3</h3>
+            <p>$30.00</p>
+            <button onclick="agregarAlCarrito('Producto 3', 30.00)">Agregar al Carrito</button>
+        </div>
+    </section>
+
+    <section id="hombres" class="productos" style="display:none;">
+        <h2>Ropa de Hombres</h2>
+        <div class="producto">
+            <img src="hombre1.jpg" alt="Hombre 1">
+            <h3>Camiseta Hombre</h3>
+            <p>$15.00</p>
+            <button onclick="agregarAlCarrito('Camiseta Hombre', 15.00)">Agregar al Carrito</button>
+        </div>
+        <div class="producto">
+            <img src="hombre2.jpg" alt="Hombre 2">
+            <h3>Pantalón Hombre</h3>
+            <p>$40.00</p>
+            <button onclick="agregarAlCarrito('Pantalón Hombre', 40.00)">Agregar al Carrito</button>
+        </div>
+    </section>
+
+    <section id="mujeres" class="productos" style="display:none;">
+        <h2>Ropa de Mujeres</h2>
+        <div class="producto">
+            <img src="mujer1.jpg" alt="Mujer 1">
+            <h3>Vestido Mujer</h3>
+            <p>$35.00</p>
+            <button onclick="agregarAlCarrito('Vestido Mujer', 35.00)">Agregar al Carrito</button>
+        </div>
+        <div class="producto">
+            <img src="mujer2.jpg" alt="Mujer 2">
+            <h3>Blusa Mujer</h3>
+            <p>$20.00</p>
+            <button onclick="agregarAlCarrito('Blusa Mujer', 20.00)">Agregar al Carrito</button>
+        </div>
+    </section>
+
+    <section id="accesorios" class="productos" style="display:none;">
+        <h2>Accesorios</h2>
+        <div class="producto">
+            <img src="accesorio1.jpg" alt="Accesorio 1">
+            <h3>Gorra</h3>
+            <p>$10.00</p>
+            <button onclick="agregarAlCarrito('Gorra', 10.00)">Agregar al Carrito</button>
+        </div>
+        <div class="producto">
+            <img src="accesorio2.jpg" alt="Accesorio 2">
+            <h3>Bufanda</h3>
+            <p>$15.00</p>
+            <button onclick="agregarAlCarrito('Bufanda', 15.00)">Agregar al Carrito</button>
+        </div>
+    </section>
+
+    <section id="ofertas" class="productos" style="display:none;">
+        <h2>Ofertas Especiales</h2>
+        <div class="producto">
+            <img src="oferta1.jpg" alt="Oferta 1">
+            <h3>Oferta 1</h3>
+            <p>$10.00</p>
+            <button onclick="agregarAlCarrito('Oferta 1', 10.00)">Agregar al Carrito</button>
+        </div>
+        <div class="producto">
+            <img src="oferta2.jpg" alt="Oferta 2">
+            <h3>Oferta 2</h3>
+            <p>$12.00</p>
+            <button onclick="agregarAlCarrito('Oferta 2', 12.00)">Agregar al Carrito</button>
+        </div>
+    </section>
+</main>
+
+<!-- Carrito Fijo -->
+<div id="carrito">
+    <h3>Tu Carrito</h3>
+    <ul id="lista-carrito"></ul>
+    <p>Total: $<span id="total-carrito">0.00</span></p>
+    <button class="btn-vaciar" onclick="vaciarCarrito()">Vaciar Carrito</button>
+    <button class="btn-pagar" onclick="mostrarCheckout()">Proceder a Pagar</button>
+</div>
+
+<!-- Checkout -->
+<div id="checkout" style="display:none;">
+    <h3>Checkout</h3>
+    <form id="payment-form">
+        <input type="text" placeholder="Nombre" required>
+        <input type="text" placeholder="Dirección" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Número de Tarjeta" required>
+        <button type="submit">Comprar</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024 Laian. Todos los derechos reservados.</p>
+    <p>Contacto: leagonza0435@gmail.com | Tel: 2494528516 | Instagram: <a href="https://www.instagram.com/leaan.03/" target="_blank">leaan.03</a></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
